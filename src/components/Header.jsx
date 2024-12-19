@@ -9,7 +9,7 @@ const headingStyle = {
 function Header() {
     return (
         <div>
-            <h1 style={headingStyle}> Fast React Pizza Co.</h1>
+            <h1 style={headingStyle}> - Fast React Pizza Co. - </h1>
         </div>
     );
 }

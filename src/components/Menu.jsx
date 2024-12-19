@@ -1,7 +1,13 @@
 import Pizza from "./Pizza";
+import data from "../data/data";
+console.log(data);
 const menuBoxStyle = {
     display: "grid",
     gridTemplateColumns: "repeat(2 , 1fr)",
+};
+
+const menuHeaderStyleMain = {
+    textAlign: "center",
 };
 
 const menuHeaderStyle = {
@@ -10,31 +16,43 @@ const menuHeaderStyle = {
     borderTop: "3px solid #27272a",
     borderBottom: "3px solid #27272a",
     display: "inline-block",
-    margin: "0px auto",
+    marginBottom: "2rem",
+    lineHeight: ".5rem",
+    height: "auto",
 };
 
 function Menu() {
     return (
         <div>
             <div>
-                <h2 style={menuHeaderStyle}> Our Menu </h2>
-                <p>
+                <div style={menuHeaderStyleMain}>
+                    <h2 style={menuHeaderStyle}> Our Menu </h2>
+                </div>
+                <p style={{ textAlign: "center" }}>
                     Authentic Italin cuisine . 6 Creative to chose from. All
                     from stone oven , all organic . Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Omnis aliquam quos eveniet
-                    corrupti amet temporibus blanditiis obcaecati dolore ad
-                    sapiente reiciendis quaerat qui velit atque esse eaque
-                    deserunt dolorum, quo expedita similique culpa.
+                    consectetur adipisicing elit. Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Non eos ut beatae voluptates
+                    dolor eligendi accusantium ex at, aspernatur voluptatem.
                 </p>
             </div>
 
             <div style={menuBoxStyle}>
+                {/* <Pizza />
                 <Pizza />
                 <Pizza />
                 <Pizza />
                 <Pizza />
-                <Pizza />
-                <Pizza />
+                <Pizza /> */}
+
+                {data.map(function (pizzaData) {
+                    return (
+                        <Pizza
+                            pizzaData={pizzaData}
+                            key={pizzaData.name}
+                        ></Pizza>
+                    );
+                })}
             </div>
         </div>
     );
